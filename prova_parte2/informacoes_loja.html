@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informações da Loja</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background-color: #f9f9f9; 
+        }
+        h2 {
+            text-align: center; 
+            color: #A64D79; 
+            padding: 20px; 
+        }
+        .content {
+            max-width: 800px; 
+            margin: 0 auto; /* centraliza o conteúdo horizontalmente */
+            padding: 20px; 
+            background-color: white; 
+            border-radius: 8px; /* cantos arredondados */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        }
+        #back-button {
+            display: block; 
+            margin: 20px auto; 
+            padding: 10px 20px; 
+            background-color: #A64D79; 
+            color: white; 
+            text-align: center; 
+            text-decoration: none; /* remove o sublinhado do link */
+            border-radius: 5px; 
+        }
+        /* Estilo do formulário */
+        .form-container {
+            margin-top: 20px; 
+            padding: 20px; 
+            background-color: white; 
+            border-radius: 5px; 
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+        }
+        .form-container label {
+            display: block; /* faz o rótulo ocupar a linha inteira */
+            margin-bottom: 8px; /* espaço abaixo do rótulo */
+            font-weight: bold; /* deixa o texto do rótulo em negrito */
+        }
+        .form-container input,
+        .form-container textarea {
+            width: 100%; 
+            padding: 10px; 
+            margin-bottom: 15px; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        .form-container button {
+            padding: 10px 15px; 
+            background-color: #A64D79; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; /* muda o cursor para uma mãozinha quando passa por cima */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Informações da Loja</h2>
+<div class="content"> 
+    <p>Bem-vindo à nossa loja virtual! Aqui você encontra uma variedade de produtos de qualidade.</p>
+    <p>Nossa missão é oferecer aos nossos clientes uma experiência de compra online fácil e conveniente.</p>
+    <p>Se tiver dúvidas ou precisar de ajuda, não hesite em entrar em contato conosco!</p>
+</div>
+
+<!-- Formulário de Contato -->
+<div class="form-container">
+    <h3>Contato</h3>
+    <form id="contact-form">
+        <label for="name">Nome:</label>
+        <input type="text" id="name" required> 
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" required> 
+
+        <label for="message">Mensagem:</label>
+        <textarea id="message" rows="4" required></textarea> 
+
+        <button type="submit">Enviar</button> 
+    </form>
+</div>
+
+<!-- Voltar para a página anterior -->
+<a id="back-button" href="index.html">Voltar para a Loja</a>
+
+<script>
+    // Lógica para enviar o formulário
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // impede o comportamento padrão de recarregar a página
+        alert('Formulário enviado!'); 
+        this.reset(); // limpa o formulário após o envio
+    });
+</script>
+
+</body>
+</html>

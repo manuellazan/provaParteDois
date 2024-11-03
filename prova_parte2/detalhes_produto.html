@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            text-align: center;
+            color: #A64D79;
+            padding: 20px;
+        }
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        #back-button {
+            display: block;/*ocupa a largura disponivel, cada bloco vai começar em uma nova linha*/
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #A64D79;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Detalhes do Produto</h2>
+<div class="content">
+    <img id="product-image" src="" alt="Imagem do Produto" style="max-width: 100%; height: auto;"/>
+    <p id="product-description"></p>
+</div>
+
+<a id="back-button" href="index.html">Voltar para a Loja</a>
+
+<script>
+    // Obtém o ID do produto da URL, ele retorna os parâmetros de consulta
+    //carrega info especifica baseado no elemento que foi clicado
+    //eu pego essas info pelo id
+    const urlParams = new URLSearchParams(window.location.search);
+    const productId = urlParams.get('id');
+
+    
+    const items = [
+        {
+            id: 0,
+            nome: 'Camiseta',
+            img: 'image.jpg',
+            descricao: 'Camiseta de algodão confortável, disponível em várias cores.',
+        },
+        {
+            id: 1,
+            nome: 'Blusa',
+            img: 'image2.jpg',
+            descricao: 'Blusa elegante, perfeita para ocasiões formais e informais.',
+        },
+        {
+            id: 2,
+            nome: 'Sapato',
+            img: 'image3.jpg',
+            descricao: 'Sapato de couro, ideal para o dia a dia e ocasiões especiais.',
+        }
+    ];
+
+    // Função para exibir os detalhes do produto
+    //a função pega toda a sintaxe que passei dentro das chaves
+    //o find pega o items que é um array
+    //fiz uma condição que busca pela imagem e pela descrição, caso não tenha, ele fala que não encontrou o produto
+    const mostrarDetalhesProduto = () => {
+        const product = items.find(item => item.id == productId);
+        if (product) {
+            document.getElementById('product-image').src = product.img;
+            document.getElementById('product-description').innerText = product.descricao;
+        } else {
+            document.getElementById('product-description').innerText = 'Produto não encontrado.';
+        }
+    };
+
+    mostrarDetalhesProduto(); // Chama a função para mostrar os detalhes ao carregar a página
+</script>
+
+</body>
+</html>
